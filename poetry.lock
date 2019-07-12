@@ -1,0 +1,45 @@
+[[package]]
+category = "main"
+description = "Python module for the Amadeus travel APIs"
+name = "amadeus"
+optional = false
+python-versions = ">=2.7.0"
+version = "3.1.0"
+
+[[package]]
+category = "main"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+name = "django"
+optional = false
+python-versions = ">=3.5"
+version = "2.2.3"
+
+[package.dependencies]
+pytz = "*"
+sqlparse = "*"
+
+[[package]]
+category = "main"
+description = "World timezone definitions, modern and historical"
+name = "pytz"
+optional = false
+python-versions = "*"
+version = "2019.1"
+
+[[package]]
+category = "main"
+description = "Non-validating SQL parser"
+name = "sqlparse"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.3.0"
+
+[metadata]
+content-hash = "37798a2aa0ecca55691f48eb353545cb4fc202448ba11776a1481afb9b47956b"
+python-versions = "^3.7"
+
+[metadata.hashes]
+amadeus = ["a47874ec4575a64f5ffde95bbdb1cd687904609afab5aa2a28540ddfd72375d7", "cc590d39c91a9310b0239495ee7997c08a66a9fc285f285c918c3a850620a652"]
+django = ["4d23f61b26892bac785f07401bc38cbf8fa4cec993f400e9cd9ddf28fd51c0ea", "6e974d4b57e3b29e4882b244d40171d6a75202ab8d2402b8e8adbd182e25cf0c"]
+pytz = ["303879e36b721603cc54604edcac9d20401bdbe31e1e4fdee5b9f98d5d31dfda", "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"]
+sqlparse = ["40afe6b8d4b1117e7dff5504d7a8ce07d9a1b15aeeade8a2d10f130a834f8177", "7c3dca29c022744e95b547e867cee89f4fce4373f3549ccd8797d8eb52cdb873"]
