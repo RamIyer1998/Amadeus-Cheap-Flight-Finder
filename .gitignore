@@ -115,6 +115,11 @@ api_keys.py
 *.pyc
 __pycache__/
 local_settings.py
+media/**
+!media/**/init.txt
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 .env
 db.sqlite3
