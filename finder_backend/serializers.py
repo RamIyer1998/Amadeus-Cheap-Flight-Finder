@@ -3,12 +3,8 @@ from .models import Flight
 
 
 class FlightSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Flight
-        fields = (
-            'id',
-            'origin',
-            'destination',
-            'departure_date',
-            'return_date'
-        )
+        fields = ['id', 'origin', 'destination', 'departure_date',
+                  'return_date', 'price', 'direct_flight']
