@@ -8,3 +8,5 @@ class Flight(models.Model):
     destination = models.CharField(max_length=3)
     departure_date = models.CharField(max_length=10)
     return_date = models.CharField(max_length=10, blank=True)
+    price = models.IntegerField(default=0)
+    direct_flight = models.BooleanField(default=True)
