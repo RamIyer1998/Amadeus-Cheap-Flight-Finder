@@ -9,7 +9,6 @@ interface flight {
   departure_date: string;
   return_date: string;
   price: string;
-  direct_flight: boolean;
 }
 class App extends Component {
   state = {
@@ -18,7 +17,9 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/");
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/search/?origin=PHL&destination=TYO&departure_date=2020-05-01&return_date=2020-05-05"
+      );
       const flights = await res.json();
       this.setState({
         flights
@@ -35,10 +36,10 @@ class App extends Component {
           <div>
             <h1>{item.origin}</h1>
             <h1>{item.destination}</h1>
-            <span>{item.departure_date}</span>
-            <span>{item.return_date}</span>
-            <span>{item.price}</span>
-            <span>{item.direct_flight}</span>
+            <h5>{item.departure_date}</h5>
+            <h5>{item.return_date}</h5>
+            <h5>{item.price}</h5>
+            <br />
           </div>
         ))}
       </div>
