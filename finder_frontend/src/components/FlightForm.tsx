@@ -17,6 +17,10 @@ interface MyState {
   flights: Array<flight>;
 }
 
+interface MyProps {
+  flights: Array<flight>;
+}
+
 class FlightForm extends React.Component<{}, MyState> {
   constructor(props: any) {
     super(props);
@@ -34,6 +38,7 @@ class FlightForm extends React.Component<{}, MyState> {
     this.handleDeptChange = this.handleDeptChange.bind(this);
     this.handleRetChange = this.handleRetChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderFlights = this.renderFlights.bind(this);
   }
 
   handleOriginChange(event: any) {
@@ -68,6 +73,14 @@ class FlightForm extends React.Component<{}, MyState> {
       this.setState({
         flights
       });
+      this.render();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  renderFlights() {
+    if (!(this.state.flights.length === 0)) {
       return (
         <div>
           {this.state.flights.map(item => (
@@ -82,52 +95,53 @@ class FlightForm extends React.Component<{}, MyState> {
           ))}
         </div>
       );
-    } catch (e) {
-      console.log(e);
     }
   }
 
   render() {
     return (
-      <form>
-        <label>
-          Origin:
-          <input
-            type="text"
-            value={this.state.origin}
-            onChange={this.handleOriginChange}
-          />
-        </label>
-        <br />
-        <label>
-          Destination:
-          <input
-            type="text"
-            value={this.state.destination}
-            onChange={this.handleDestinationChange}
-          />
-        </label>
-        <br />
-        <label>
-          Departure Date (YYYY-MM-DD):
-          <input
-            type="text"
-            value={this.state.departure_date}
-            onChange={this.handleDeptChange}
-          />
-        </label>
-        <br />
-        <label>
-          Return Date (YYYY-MM-DD):
-          <input
-            type="text"
-            value={this.state.return_date}
-            onChange={this.handleRetChange}
-          />
-        </label>
-        <br />
-        <input type="button" value="Submit" onClick={this.handleSubmit} />
-      </form>
+      <div>
+        <form>
+          <label>
+            Origin:
+            <input
+              type="text"
+              value={this.state.origin}
+              onChange={this.handleOriginChange}
+            />
+          </label>
+          <br />
+          <label>
+            Destination:
+            <input
+              type="text"
+              value={this.state.destination}
+              onChange={this.handleDestinationChange}
+            />
+          </label>
+          <br />
+          <label>
+            Departure Date (YYYY-MM-DD):
+            <input
+              type="text"
+              value={this.state.departure_date}
+              onChange={this.handleDeptChange}
+            />
+          </label>
+          <br />
+          <label>
+            Return Date (YYYY-MM-DD):
+            <input
+              type="text"
+              value={this.state.return_date}
+              onChange={this.handleRetChange}
+            />
+          </label>
+          <br />
+          <input type="button" value="Submit" onClick={this.handleSubmit} />
+        </form>
+        {this.renderFlights()}
+      </div>
     );
   }
 }
