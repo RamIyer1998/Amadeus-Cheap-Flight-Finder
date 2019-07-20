@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import FlightList from "./FlightList";
+
 interface flight {
   id: number;
   origin: string;
@@ -14,10 +16,6 @@ interface MyState {
   destination: string;
   departure_date: string;
   return_date: string;
-  flights: Array<flight>;
-}
-
-interface MyProps {
   flights: Array<flight>;
 }
 
@@ -81,20 +79,7 @@ class FlightForm extends React.Component<{}, MyState> {
 
   renderFlights() {
     if (!(this.state.flights.length === 0)) {
-      return (
-        <div>
-          {this.state.flights.map(item => (
-            <div>
-              <h1>{item.origin}</h1>
-              <h1>{item.destination}</h1>
-              <h5>{item.departure_date}</h5>
-              <h5>{item.return_date}</h5>
-              <h5>{item.price}</h5>
-              <br />
-            </div>
-          ))}
-        </div>
-      );
+      return <FlightList flights={this.state.flights} />;
     }
   }
 
