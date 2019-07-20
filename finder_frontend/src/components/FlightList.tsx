@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+/**
+ * Interface that defines the flight object that comprises the list that is passed into the component
+ */
 interface flight {
   id: number;
   origin: string;
@@ -9,14 +12,23 @@ interface flight {
   price: string;
 }
 
+/**
+ * Interface that is used to define the props passed into the FlightList Component
+ */
 interface MyProps {
   flights: Array<flight>;
 }
 
+/**
+ * Interface that is used to define the state of the FlightList Component
+ */
 interface MyState {
   flights: Array<flight>;
 }
 
+/**
+ * Component that lists out the information of each flight in the list passed into the component
+ */
 class FlightList extends React.Component<MyProps, MyState> {
   constructor(props: MyProps) {
     super(props);

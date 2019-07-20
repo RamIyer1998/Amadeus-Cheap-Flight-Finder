@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import FlightList from "./FlightList";
 
+/**
+ * Interface that defines the flight object that comprises the list returned
+ * by the Django backend
+ */
 interface flight {
   id: number;
   origin: string;
@@ -11,6 +15,9 @@ interface flight {
   price: string;
 }
 
+/**
+ * Interface that is used to define the state of the FlightForm Component
+ */
 interface MyState {
   origin: string;
   destination: string;
@@ -19,6 +26,10 @@ interface MyState {
   flights: Array<flight>;
 }
 
+/**
+ * Form that takes in information necessary to search for flights using Amadeus, and renders the results
+ * using FlightList
+ */
 class FlightForm extends React.Component<{}, MyState> {
   constructor(props: any) {
     super(props);
@@ -39,22 +50,44 @@ class FlightForm extends React.Component<{}, MyState> {
     this.renderFlights = this.renderFlights.bind(this);
   }
 
+  /**
+   * Function to update the origin element in the FlightForm's state
+   * @param event that occurs after the textfield input dictating origin is changed
+   */
   handleOriginChange(event: any) {
     this.setState({ origin: event.target.value });
   }
 
+  /**
+   * Function to update the destination element in the FlightForm's state
+   * @param event that occurs after the textfield input dictating destination is changed
+   */
   handleDestinationChange(event: any) {
     this.setState({ destination: event.target.value });
   }
 
+  /**
+   * Function to update the departure date element in the FlightForm's state
+   * @param event that occurs after the textfield input dictating departure date is changed
+   */
   handleDeptChange(event: any) {
     this.setState({ departure_date: event.target.value });
   }
 
+  /**
+   * Function to update the return date element in the FlightForm's state
+   * @param event that occurs after the textfield input dictating return date is changed
+   */
   handleRetChange(event: any) {
     this.setState({ return_date: event.target.value });
   }
 
+  /**
+   * Function that sends the data to the Django backend via the fetch api and
+   * sets the flights element of the FlightForm to the returned response after
+   * the user hits the response button
+   * @param event that occurs after the user hits the submit button
+   */
   async handleSubmit(event: any) {
     try {
       const res = await fetch(
@@ -77,12 +110,19 @@ class FlightForm extends React.Component<{}, MyState> {
     }
   }
 
+  /**
+   * Function called within render that creates a FlightList if the flights element
+   * of the FlightForm isn't empty
+   */
   renderFlights() {
     if (!(this.state.flights.length === 0)) {
       return <FlightList flights={this.state.flights} />;
     }
   }
 
+  /**
+   * Renders the form and the result of the form submission
+   */
   render() {
     return (
       <div>
