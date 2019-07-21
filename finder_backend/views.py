@@ -12,6 +12,7 @@ from .api_keys import api_key, api_secret
 class FindFlight(generics.ListCreateAPIView):
     serializer_class = FlightSerializer
 
+    # Function that overrides the default get_queryset to return results from an API call
     def get_queryset(self):
         origin = self.request.query_params.get('origin')
         destination = self.request.query_params.get('destination')
