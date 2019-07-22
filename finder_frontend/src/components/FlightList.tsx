@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/FlightList.css";
 
 /**
  * Interface that defines the flight object that comprises the list that is passed into the component
@@ -39,21 +40,28 @@ class FlightList extends React.Component<MyProps, MyState> {
   }
 
   render = () => {
-    console.log(this.state.flights);
-    return (
-      <div>
-        {this.state.flights.map(item => (
-          <div>
-            <h1>{item.origin}</h1>
-            <h1>{item.destination}</h1>
-            <h5>{item.departure_date}</h5>
-            <h5>{item.return_date}</h5>
-            <h5>{item.price}</h5>
-            <br />
-          </div>
-        ))}
-      </div>
-    );
+    if (this.state.flights.length === 0) {
+      return;
+    } else {
+      return (
+        <div>
+          {this.state.flights.map(item => (
+            <div>
+              <div>
+                <h5>Origin: {item.origin}</h5>
+                <h5>Destination: {item.destination}</h5>
+              </div>
+              <div>
+                <h5>Departure Date: {item.departure_date}</h5>
+                <h5>Return Date: {item.return_date}</h5>
+              </div>
+              <h5>Total Price (Taxes Included): {item.price}</h5>
+              <br />
+            </div>
+          ))}
+        </div>
+      );
+    }
   };
 }
 

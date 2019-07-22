@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/FlightForm.css";
 
 import FlightList from "./FlightList";
 
