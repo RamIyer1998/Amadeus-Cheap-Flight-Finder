@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Flight from "./Flight";
 import "../styles/FlightList.css";
 
 /**
@@ -46,18 +47,13 @@ class FlightList extends React.Component<MyProps, MyState> {
       return (
         <div>
           {this.state.flights.map(item => (
-            <div>
-              <div>
-                <h5>Origin: {item.origin}</h5>
-                <h5>Destination: {item.destination}</h5>
-              </div>
-              <div>
-                <h5>Departure Date: {item.departure_date}</h5>
-                <h5>Return Date: {item.return_date}</h5>
-              </div>
-              <h5>Total Price (Taxes Included): {item.price}</h5>
-              <br />
-            </div>
+            <Flight
+              origin={item.origin}
+              destination={item.destination}
+              departure_date={item.departure_date}
+              return_date={item.return_date}
+              price={item.price}
+            />
           ))}
         </div>
       );
