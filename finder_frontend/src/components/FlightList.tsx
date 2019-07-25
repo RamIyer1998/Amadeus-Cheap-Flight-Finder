@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Flight from "./Flight";
-import "../styles/FlightList.css";
+import styles from "../styles/FlightList.module.css";
 
 /**
  * Interface that defines the flight object that comprises the list that is passed into the component

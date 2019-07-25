@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/FlightForm.css";
+import styles from "../styles/FlightForm.module.css";
 
 import FlightList from "./FlightList";
 
@@ -127,7 +127,7 @@ class FlightForm extends React.Component<{}, MyState> {
   render() {
     return (
       <div>
-        <form>
+        <form className={styles.main_div}>
           <label>
             Origin:
             <input

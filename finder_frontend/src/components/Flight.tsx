@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "../styles/Flight.module.css";
 
 /**
  * Interface that is used to define the props passed into the FlightList Component
@@ -40,7 +41,7 @@ class Flight extends React.Component<MyProps, MyState> {
 
   render = () => {
     return (
-      <div>
+      <div className={styles.item}>
         <div>
           <h5>Origin: {this.state.origin}</h5>
           <h5>Destination: {this.state.destination}</h5>
