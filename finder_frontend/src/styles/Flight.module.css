@@ -2,7 +2,12 @@
 .item {
   margin-left: 2%;
   margin-top: 2%;
+  margin-right: 2%;
   line-height: 1.5;
-  display: inline-block;
+  display: block;
   border: solid;
+}
+
+.subheader {
+  display: inline-block;
 }

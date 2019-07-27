@@ -42,15 +42,17 @@ class Flight extends React.Component<MyProps, MyState> {
   render = () => {
     return (
       <div className={styles.item}>
-        <div>
+        <div className={styles.subheader}>
           <h5>Origin: {this.state.origin}</h5>
           <h5>Destination: {this.state.destination}</h5>
         </div>
-        <div>
+        <div className={styles.subheader}>
           <h5>Departure Date: {this.state.departure_date}</h5>
           <h5>Return Date: {this.state.return_date}</h5>
         </div>
-        <h5>Total Price (Taxes Included): {this.state.price}</h5>
+        <div className={styles.subheader}>
+          <h5>Total Price (Taxes Included): ${this.state.price}</h5>
+        </div>
         <br />
       </div>
     );
