@@ -3,5 +3,5 @@ div {
   margin-left: 2%;
   margin-top: 2%;
   line-height: 1.5;
-  display: inline-block;
+  display: block;
 }
