@@ -33,7 +33,7 @@ class Flight extends React.Component<MyProps, MyState> {
     this.state = {
       origin: this.props.origin,
       destination: this.props.destination,
-      departure_date: this.props.destination,
+      departure_date: this.props.departure_date,
       return_date: this.props.return_date,
       price: this.props.price
     };
@@ -43,15 +43,23 @@ class Flight extends React.Component<MyProps, MyState> {
     return (
       <div className={styles.item}>
         <div className={styles.subheader}>
-          <h5>Origin: {this.state.origin}</h5>
-          <h5>Destination: {this.state.destination}</h5>
+          <h5 className={styles.left}>Origin: {this.state.origin}</h5>
+          <h5 className={styles.right}>
+            Destination: {this.state.destination}
+          </h5>
         </div>
         <div className={styles.subheader}>
-          <h5>Departure Date: {this.state.departure_date}</h5>
-          <h5>Return Date: {this.state.return_date}</h5>
+          <h5 className={styles.left}>
+            Departure Date: {this.state.departure_date}
+          </h5>
+          <h5 className={styles.right}>
+            Return Date: {this.state.return_date}
+          </h5>
         </div>
         <div className={styles.subheader}>
-          <h5>Total Price (Taxes Included): ${this.state.price}</h5>
+          <h5 className={styles.left}>
+            Total Price (Taxes Included): ${this.state.price}
+          </h5>
         </div>
         <br />
       </div>
