@@ -9,5 +9,14 @@
 }
 
 .subheader {
+  display: inline-;
+}
+
+.left {
   display: inline-block;
+}
+
+.right {
+  display: inline-block;
+  float: right;
 }
