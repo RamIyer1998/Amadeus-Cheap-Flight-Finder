@@ -49,6 +49,7 @@ class FlightForm extends React.Component<{}, MyState> {
     this.handleRetChange = this.handleRetChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderFlights = this.renderFlights.bind(this);
+    this.renderForm = this.renderForm.bind(this);
   }
 
   /**
@@ -121,6 +122,23 @@ class FlightForm extends React.Component<{}, MyState> {
     }
   }
 
+  /*
+  renderForm() {
+    var stuff: {
+        "Origin": [this.state.origin, this.handleOriginChange],
+        "Destination": [this.state.destination, this.handleDestinationChange],
+        "Departure Date": [this.state.departure_date, this.handleDeptChange],
+        "Return Date": [this.state.return_date, this.handleRetChange]
+      };
+    var values = ["Origin", "Destination", "Departure Date", "Return Date"]
+
+    for(let key in stuff){
+      let val = stuff[key][0];
+      return (<div><label>{stuff}: <input type="text" value={stuff}[{key}][0] onChange={key}[{values[i]}][1] /></label><br /></div>)
+    }
+  }
+  */
+
   /**
    * Renders the form and the result of the form submission
    */
@@ -128,42 +146,7 @@ class FlightForm extends React.Component<{}, MyState> {
     return (
       <div>
         <form className={styles.main_div}>
-          <label>
-            Origin:
-            <input
-              type="text"
-              value={this.state.origin}
-              onChange={this.handleOriginChange}
-            />
-          </label>
-          <br />
-          <label>
-            Destination:
-            <input
-              type="text"
-              value={this.state.destination}
-              onChange={this.handleDestinationChange}
-            />
-          </label>
-          <br />
-          <label>
-            Departure Date (YYYY-MM-DD):
-            <input
-              type="text"
-              value={this.state.departure_date}
-              onChange={this.handleDeptChange}
-            />
-          </label>
-          <br />
-          <label>
-            Return Date (YYYY-MM-DD):
-            <input
-              type="text"
-              value={this.state.return_date}
-              onChange={this.handleRetChange}
-            />
-          </label>
-          <br />
+          {this.renderForm()}
           <input type="button" value="Submit" onClick={this.handleSubmit} />
         </form>
         {this.renderFlights()}
