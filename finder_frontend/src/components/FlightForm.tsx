@@ -49,7 +49,7 @@ class FlightForm extends React.Component<{}, MyState> {
     this.handleRetChange = this.handleRetChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderFlights = this.renderFlights.bind(this);
-    this.renderForm = this.renderForm.bind(this);
+    //this.renderForm = this.renderForm.bind(this);
   }
 
   /**
@@ -143,10 +143,46 @@ class FlightForm extends React.Component<{}, MyState> {
    * Renders the form and the result of the form submission
    */
   render() {
+    //{this.renderForm()}
     return (
       <div>
         <form className={styles.main_div}>
-          {this.renderForm()}
+          <label>
+            Origin:
+            <input
+              type="text"
+              value={this.state.origin}
+              onChange={this.handleOriginChange}
+            />
+          </label>
+          <br />
+          <label>
+            Destination:
+            <input
+              type="text"
+              value={this.state.destination}
+              onChange={this.handleDestinationChange}
+            />
+          </label>
+          <br />
+          <label>
+            Departure Date (YYYY-MM-DD):
+            <input
+              type="text"
+              value={this.state.departure_date}
+              onChange={this.handleDeptChange}
+            />
+          </label>
+          <br />
+          <label>
+            Return Date (YYYY-MM-DD):
+            <input
+              type="text"
+              value={this.state.return_date}
+              onChange={this.handleRetChange}
+            />
+          </label>
+          <br />
           <input type="button" value="Submit" onClick={this.handleSubmit} />
         </form>
         {this.renderFlights()}
